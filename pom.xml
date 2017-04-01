@@ -75,9 +75,16 @@
             <artifactId>bootstrap</artifactId>
             <version>${webjars.version}</version>
         </dependency>
+
+        <!-- Neo4J dependencies-->
+        <dependency>
+            <groupId>org.neo4j.driver</groupId>
+            <artifactId>neo4j-java-driver</artifactId>
+            <version>1.1.2</version>
+        </dependency>
     </dependencies>
 
-    <!-- Neo4J dependencies-->
+
     <!-- Other dependencies-->
 
 
