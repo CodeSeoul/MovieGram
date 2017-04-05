@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 public class ApplicationTest {
     @Test
     public void main() throws Exception {
-        fail();
+        fail("This should always fail");
     }
 
 }
