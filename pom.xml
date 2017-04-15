@@ -19,6 +19,7 @@
         <java.version>1.8</java.version>
         <eclipse.compiler.version>4.6.1</eclipse.compiler.version>
         <webjars.version>3.3.7</webjars.version>
+        <neo4j.version>3.1.3</neo4j.version>
     </properties>
 
     <dependencies>
@@ -78,14 +79,29 @@
 
         <!-- Neo4J dependencies-->
         <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j</artifactId>
+            <version>${neo4j.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
             <groupId>org.neo4j.driver</groupId>
             <artifactId>neo4j-java-driver</artifactId>
-            <version>1.1.2</version>
+            <version>1.1.0</version>
+            <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.neo4j.test</groupId>
+            <artifactId>neo4j-harness</artifactId>
+            <version>${neo4j.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Other dependencies-->
+
     </dependencies>
-
-
-    <!-- Other dependencies-->
 
 
     <!-- Package as an executable jar -->
@@ -95,6 +111,26 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 </project>
