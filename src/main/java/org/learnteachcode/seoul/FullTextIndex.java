@@ -70,7 +70,7 @@ public class FullTextIndex
      *              documentation for full available syntax.
      * @return the nodes found by the query
      */
-    // TODO: This is here as a workaround, because index().forNodes() is not read-only
+    // This is here as a workaround, because index().forNodes() is not read-only
     @Procedure(value = "example.search", mode = Mode.WRITE)
     @Description("Execute lucene query in the given index, return found nodes")
     public Stream<SearchHit> search( @Name("label") String label,
